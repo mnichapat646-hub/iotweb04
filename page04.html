@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chanintorn C. - Portfolio</title>
+    <!-- นำเข้าฟอนต์จาก Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <!-- นำเข้าไอคอนจาก FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #070928;
+            --text-main: #ffffff;
+            --text-muted: #8b92b2;
+            --accent-color: #9fa8ff;
+            --input-bg: #030416;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            margin-top: 0;
+        }
+
+        h1 {
+            font-size: 4rem;
+            line-height: 1;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        /* Layout Utility */
+        .flex-row {
+            display: flex;
+            gap: 40px;
+        }
+
+        .col-left {
+            flex: 0 0 220px;
+        }
+
+        .col-right {
+            flex: 1;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 500;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        nav a {
+            margin-left: 25px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: capitalize;
+        }
+
+        nav a:hover {
+            color: var(--text-main);
+        }
+
+        /* Sections */
+        section {
+            padding: 70px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        /* Buttons & Icons */
+        .btn {
+            background-color: var(--accent-color);
+            color: #000;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .btn .dot {
+            width: 6px;
+            height: 6px;
+            background-color: #000;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        
+        .social-icons {
+            display: inline-flex;
+            gap: 10px;
+            margin-left: 15px;
+            vertical-align: middle;
+        }
+
+        .icon-circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.05);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            transition: 0.3s;
+        }
+
+        .icon-circle:hover {
+            background-color: rgba(255,255,255,0.15);
+            color: var(--text-main);
+        }
+
+        /* Hero */
+        .hero-img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 15px;
+            object-fit: cover;
+            display: block;
+            margin-left: auto;
+        }
+
+        /* About */
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+        
+        .about-subtext {
+            font-size: 0.8rem;
+            line-height: 1.7;
+        }
+
+        .desk-img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 50px;
+            object-fit: cover;
+            height: 300px;
+        }
+
+        /* Capabilities */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-pill {
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 8px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+        }
+
+        /* Experience */
+        .job {
+            margin-bottom: 35px;
+        }
+        
+        .job-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-family: 'Inter', sans-serif;
+            text-transform: none;
+            font-weight: normal;
+        }
+
+        /* Contact */
+        .contact-info p {
+            margin-bottom: 5px;
+        }
+        
+        .contact-socials {
+            margin-top: 25px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .contact-socials a {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .input-group label {
+            font-size: 0.75rem;
+            color: var(--accent-color);
+        }
+
+        input, textarea {
+            background-color: var(--input-bg);
+            border: none;
+            border-radius: 4px;
+            padding: 12px;
+            color: white;
+            font-family: inherit;
+            font-size: 0.85rem;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            align-self: flex-start;
+            background-color: var(--accent-color);
+            color: #000;
+            padding: 8px 25px;
+            border-radius: 20px;
+            border: none;
+            font-weight: 600;
+            font-size: 0.75rem;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px 0;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .flex-row {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .col-left {
+                flex: none;
+            }
+            h1 { font-size: 3rem; }
+            .hero-img { margin: 0; max-width: 100%; }
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            h3 { flex-direction: column; align-items: flex-start; gap: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <header>
+        <div class="logo">CHANINTORN CHALERMSUK</div>
+        <nav>
+            <a href="#">Work</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section>
+        <div class="flex-row">
+            <div class="col-right" style="padding-top: 20px;">
+                <h1>HI, I AM<br>CHANINTORN C.</h1>
+                <p>นักพัฒนาเว็บไซต์ฝั่งฟร้อนท์เอนด์จากประเทศไทย<br>ที่มีความหลงใหลในการสร้าง เว็บไซต์ที่เข้าถึงได้และเป็นมิตรกับผู้ใช้</p>
+                <div style="margin-top: 30px;">
+                    <a href="#" class="btn">CONTACT ME <span class="dot"></span></a>
+                    <div class="social-icons">
+                        <a href="#" class="icon-circle"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="icon-circle"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-left" style="flex: 0 0 300px;">
+                <!-- เปลี่ยนชื่อไฟล์รูปภาพตรง src ให้ตรงกับของคุณ -->
+                <img src="https://images.pexels.com/photos/5474039/pexels-photo-5474039.jpeg" alt="Profile" class="hero-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section>
+        <div class="flex-row">
+            <div class="col-left">
+                <h2>ABOUT ME</h2>
+            </div>
+            <div class="col-right">
+                <div class="about-text">
+                    ผมเป็นนักพัฒนาเว็บไซต์ฝั่งฟร้อนท์เอนด์ที่ทำงาน<br>
+                    อยู่ในกรุงเทพฯ กำลังมองหาโอกาสที่น่าตื่นเต้น<br>
+                    ในการ ทำงานมีพื้นฐานการศึกษาด้าน<br>
+                    วิศวกรรมซอฟต์แวร์
+                </div>
+                <p class="about-subtext">
+                    ให้ความสำคัญกับการเข้าถึง (accessibility) เมื่อพัฒนาเว็บไซต์<br>
+                    มีความกระตือรือร้นและอยากรู้ อยากเห็นเกี่ยวกับการแก้ปัญหาต่างๆ<br>
+                    ปัจจุบันกำลังศึกษาเรียนรู้เกี่ยวกับ React.js และการออกแบบ<br>
+                    เว็บไซต์เล็กน้อยเมื่อไม่ได้เขียนโปรแกรม ดิฉัน/ผมชอบเล่นฟุตบอล ถ่ายภาพ และเล่นเกม<br>
+                    FIFA, Diablo กำลังเรียนรู้เพิ่มเติมเพื่อพัฒนาทักษะอยู่เสมอ
+                </p>
+                <div style="margin-top: 30px;">
+                    <a href="#" class="btn">DOWNLOAD RESUME <span class="dot"></span></a>
+                    <div class="social-icons">
+                        <a href="#" class="icon-circle"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="icon-circle"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- เปลี่ยนชื่อไฟล์รูปภาพตรง src ให้ตรงกับของคุณ -->
+        <img src="https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg" alt="Working" class="desk-img">
+    </section>
+
+    <!-- Capabilities Section -->
+    <section>
+        <div class="flex-row">
+            <div class="col-left">
+                <h2>MY CAPABILITIES</h2>
+            </div>
+            <div class="col-right">
+                <p>ผมมองหาโอกาสในการเพิ่มทักษะใหม่ๆ อยู่เสมอ ทั้งการพัฒนาฟร้อนท์เอนด์ แบ็คเอนด์ การ<br>ออกแบบ UX/UI ฐานข้อมูล</p>
+                <div class="skills-grid">
+                    <div class="skill-pill">HTML</div>
+                    <div class="skill-pill">CSS</div>
+                    <div class="skill-pill">JAVASCRIPT</div>
+                    <div class="skill-pill">FLUTTER</div>
+                    <div class="skill-pill">DART</div>
+                    <div class="skill-pill">IoT</div>
+                    <div class="skill-pill">REACT</div>
+                    <div class="skill-pill">DATABASE</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section>
+        <div class="flex-row">
+            <div class="col-left">
+                <h2>MY EXPERIENCE</h2>
+            </div>
+            <div class="col-right">
+                <div class="job">
+                    <h3>Freelance Developer <span class="job-date">Nov 2023 - Present</span></h3>
+                    <p>พัฒนาและปรับปรุงส่วนติดต่อผู้ใช้สำหรับเว็บแอปพลิเคชันโดยใช้ React.js ทำงานร่วมกับทีม<br>ออกแบบ UX/UI เพื่อสร้างประสบการณ์ผู้ใช้ที่น่าประทับใจปรับปรุงความเร็วในการโหลด<br>เว็บไซต์ด้วยเทคนิคการเพิ่มประสิทธิภาพต่างๆ ร่วมพัฒนาและดูแลไลบรารีคอมโพเนนต์ภายในองค์กร</p>
+                </div>
+                <div class="job">
+                    <h3>Front-End Intern <span class="job-date">Sep 2023 - Nov 2023</span></h3>
+                    <p>พัฒนาเว็บไซต์ลูกค้าโดยใช้ HTML, CSS และ JavaScript<br>ช่วยปรับปรุงการเข้าถึง (Accessibility) ของเว็บไซต์ให้สอดคล้องกับมาตรฐาน WCAG<br>ทำงานร่วมกับทีมแบ็คเอนด์เพื่อเชื่อมต่อ API</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section>
+        <div class="flex-row">
+            <div class="col-left">
+                <h2>LET'S CONNECT</h2>
+                <div class="contact-info" style="margin-top: 20px;">
+                    <p>Say hello at chanintorn.c@sau.ac.th</p>
+                    <p>For more info, here's my resume</p>
+                </div>
+                <div class="contact-socials">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-right">
+                <form>
+                    <div class="input-group">
+                        <label>Name</label>
+                        <input type="text" name="name">
+                    </div>
+                    <div class="input-group">
+                        <label>Email</label>
+                        <input type="email" name="email">
+                    </div>
+                    <div class="input-group">
+                        <label>Subject</label>
+                        <input type="text" name="subject">
+                    </div>
+                    <div class="input-group">
+                        <label>Message</label>
+                        <textarea name="message"></textarea>
+                    </div>
+                    <button type="button" class="submit-btn">SUBMIT</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Created by SAU-Dev-Team
+    </footer>
+</div>
+
+</body>
+</html>
